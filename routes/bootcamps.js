@@ -1,25 +1,17 @@
 const exxpress = require('express')
 const router = exxpress.Router()
+const { getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp } = require('../controller/bootcamps')
 
 
-router.get('/', (req, res) => {
-    res.status(200).json({ success: true, msg: 'show all bootcamps' })
-})
+router
+    .route('/')
+    .get(getBootcamp)
+    .post(createBootcamp)
 
-router.get('/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: 'get specific bootcamp' })
-})
-
-router.post('/', (req, res) => {
-    res.status(200).json({ success: true, msg: 'create bootcamp' })
-})
-
-router.put('/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: `update bootcamp ${req.params.id}` })
-})
-
-router.delete('/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: 'delete bootcamp' })
-})
+router
+    .route('/:id')
+    .get(getBootcamps)
+    .put(updateBootcamp)
+    .delete(deleteBootcamp)
 
 module.exports = router
