@@ -1,9 +1,9 @@
 
 //? @decription      Get all Bootcamps
-//! @route           GET /api/v1/bootcamps/:id
+//! @route           GET /api/v1/bootcamps
 //* @access          Public
 exports.getBootcamps = (req, res, next) => {
-    res.status(200).json({ success: true, msg: `show all bootcamps ${req.params.id}`});
+    res.status(200).json({ success: true, msg: `show all bootcamps`});
 }
 
 //? @decription      Get single Bootcamp
